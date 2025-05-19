@@ -1,15 +1,9 @@
 import gradio as gr
 from huggingface_hub import InferenceClient
 
-"""
-For more information on `huggingface_hub` Inference API support, please check the docs: https://huggingface.co/docs/huggingface_hub/v0.22.2/en/guides/inference
-"""
 client = InferenceClient(
-    model = "unsloth/Llama-3.2-1B-Instruct",
- #   token= "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"
+    model = "unsloth/Llama-3.2-1B-Instruct"
  )
-
-
 
 def respond(
     message,
@@ -73,10 +67,6 @@ def respond(
     if response.strip() == "":
         yield "No response generated. Please try again or adjust the settings."
 
-
-"""
-For information on how to customize the ChatInterface, peruse the gradio docs: https://www.gradio.app/docs/chatinterface
-"""
 demo = gr.ChatInterface(
     respond,
     additional_inputs=[
